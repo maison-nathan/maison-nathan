@@ -1727,17 +1727,16 @@
             });
 
             const formData = {
-                order_type,
-                nom_client,
-                prenom_client,
-                telephone_client,
-                email_client,
-                lieu_retrait_marche,
-                adresse_livraison,
-                code_postal,
-                ville,
-                items
-            };
+    order_type: typeof orderType !== 'undefined' ? orderType : 'delivery',
+    nom_client: document.getElementById('nom')?.value || '',
+    client_prenom: document.getElementById('prenom')?.value || '',
+    client_telephone: document.getElementById('telephone')?.value || '',
+    client_courriel: document.getElementById('email')?.value || '',
+    adresse_livraison: document.getElementById('adresse')?.value || '',
+    code_postal: document.getElementById('code_postal')?.value || '',
+    ville: document.getElementById('ville')?.value || '',
+    articles: articles
+};
 
             try {
                 // Appel vers la Netlify Function `checkout.js`
